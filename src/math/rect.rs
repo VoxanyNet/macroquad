@@ -1,7 +1,12 @@
+use diff::Diff;
 use glam::*;
+use serde::{Deserialize, Serialize};
 
 /// A 2D rectangle, defined by its top-left corner, width and height.
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq, Diff, Serialize, Deserialize)]
+#[diff(attr(
+    #[derive(Serialize, Deserialize)]
+))]
 pub struct Rect {
     pub x: f32,
     pub y: f32,
