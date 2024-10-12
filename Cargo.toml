@@ -14,7 +14,6 @@ license = "MIT OR Apache-2.0"
 [features]
 audio = ["quad-snd"]
 log-rs = ["log"]
-glam-serde = ["glam/serde"]
 default = []
 
 [package.metadata.android]
@@ -29,7 +28,7 @@ all-features = true
 [dependencies]
 miniquad = { version = "=0.4.6", features = ["log-impl"] }
 quad-rand = "0.2.2"
-glam = { git = "https://github.com/VoxanyNet/glam-rs", rev = "21cacdad2cfc3e1c01d2b9f72c2fe12cf5554491", features = ["scalar-math"] }
+glam = { git = "https://github.com/VoxanyNet/glam-rs", rev = "ca35e413f23e59f1267a7152399232ff2756efdc", features = ["scalar-math"] }
 image = { version = "0.24", default-features = false, features = ["png", "tga"] }
 macroquad_macro = { version = "0.1.8", path = "macroquad_macro" }
 fontdue = "0.9"
