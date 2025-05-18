@@ -28,7 +28,7 @@ all-features = true
 [dependencies]
 miniquad = { version = "=0.4.6", features = ["log-impl"] }
 quad-rand = "0.2.2"
-glam = { git = "https://github.com/VoxanyNet/glam-rs", rev = "ca35e413f23e59f1267a7152399232ff2756efdc", features = ["scalar-math"] }
+glam = { git = "https://github.com/VoxanyNet/glam-rs", rev = "ae2829011e20f66391dea9c65e09ef28b3466fe0", features = ["scalar-math"] }
 image = { version = "0.24", default-features = false, features = ["png", "tga"] }
 macroquad_macro = { version = "0.1.8", path = "macroquad_macro" }
 fontdue = "0.9"
@@ -36,7 +36,7 @@ backtrace = { version = "0.3.60", optional = true, default-features = false, fea
 log = { version = "0.4", optional = true }
 quad-snd = { version = "0.2", optional = true }
 slotmap = "1.0"
-diff-struct = "0.5.3"
+diff-struct = {git = "https://github.com/VoxanyNet/diff-struct", rev = "9f3990a29011bbbb84c40ca21f110ef8a1d343d0"}
 serde = { version = "1.0.203", features = ["serde_derive", "derive"] }
 
 [dev-dependencies]
