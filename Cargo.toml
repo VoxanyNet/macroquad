@@ -36,7 +36,7 @@ backtrace = { version = "0.3.60", optional = true }
 log = { version = "0.4", optional = true }
 quad-snd = { version = "0.2", optional = true }
 slotmap = "1.0"
-diff-struct = {git = "https://github.com/VoxanyNet/diff-struct", rev = "9f3990a29011bbbb84c40ca21f110ef8a1d343d0"}
+diff-struct = "0.5.3"
 serde = { version = "1.0.203", features = ["serde_derive", "derive"] }
 
 [dev-dependencies]
