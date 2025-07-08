@@ -39,7 +39,7 @@ struct DrawCall {
 }
 
 impl DrawCall {
-    fn new(
+    const fn new(
         texture: Option<miniquad::TextureId>,
         model: glam::Mat4,
         draw_mode: DrawMode,
@@ -149,7 +149,7 @@ impl MagicSnapshotter {
                 },
                 snapshotter_shader::meta(),
             )
-            .unwrap_or_else(|e| panic!("Failed to load shader: {}", e));
+            .unwrap_or_else(|e| panic!("Failed to load shader: {e}"));
 
         let pipeline = ctx.new_pipeline(
             &[BufferLayout::default()],
@@ -309,12 +309,12 @@ impl PipelineExt {
         let uniform_byte_size = uniform_format.size();
         let uniform_byte_offset = uniform_meta.byte_offset;
 
-        if std::mem::size_of::<T>() != uniform_byte_size {
+        if size_of::<T>() != uniform_byte_size {
             warn!(
                 "Trying to set uniform {} sized {} bytes value of {} bytes",
                 name,
                 uniform_byte_size,
-                std::mem::size_of::<T>()
+                size_of::<T>()
             );
             return;
         }
@@ -360,7 +360,7 @@ impl PipelineExt {
                 "Trying to set uniform {} sized {} bytes value of {} bytes",
                 name,
                 uniform_byte_size,
-                std::mem::size_of::<T>()
+                size_of::<T>()
             );
             return;
         }
@@ -396,7 +396,7 @@ impl PipelinesStorage {
                 },
                 shader::meta(),
             )
-            .unwrap_or_else(|e| panic!("Failed to load shader: {}", e));
+            .unwrap_or_else(|e| panic!("Failed to load shader: {e}"));
 
         let params = PipelineParams {
             color_blend: Some(BlendState::new(
@@ -534,7 +534,7 @@ impl PipelinesStorage {
         GlPipeline(id)
     }
 
-    fn get(&self, draw_mode: DrawMode, depth_enabled: bool) -> GlPipeline {
+    const fn get(&self, draw_mode: DrawMode, depth_enabled: bool) -> GlPipeline {
         match (draw_mode, depth_enabled) {
             (DrawMode::Triangles, false) => Self::TRIANGLES_PIPELINE,
             (DrawMode::Triangles, true) => Self::TRIANGLES_DEPTH_PIPELINE,
@@ -814,11 +814,11 @@ impl QuadGl {
         crate::get_context().projection_matrix()
     }
 
-    pub fn get_active_render_pass(&self) -> Option<RenderPass> {
+    pub const fn get_active_render_pass(&self) -> Option<RenderPass> {
         self.state.render_pass
     }
 
-    pub fn is_depth_test_enabled(&self) -> bool {
+    pub const fn is_depth_test_enabled(&self) -> bool {
         self.state.depth_test_enable
     }
 
